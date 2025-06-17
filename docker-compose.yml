@@ -101,7 +101,9 @@ services:
 
 
     jenkins:
-        image: jenkins/jenkins:lts
+        build:
+          context: .
+          dockerfile: Dockerfile.jenkins       
         container_name: jenkins_ci
         ports:
           - "8085:8080"

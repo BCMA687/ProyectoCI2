@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clonar repositorio') {
             steps {
-                git url: 'https://github.com/BCMA687/ProyectoCI.git', branch: 'main'
+                git url: 'https://github.com/teban-coder/ProyectoCI_V2', branch: 'main'
             }
         }
 

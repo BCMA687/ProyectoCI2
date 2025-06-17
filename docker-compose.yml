@@ -7,7 +7,7 @@ services:
         volumes : 
             - ./sql-data/db:/var/lib/mariadb
         ports: 
-            - "3306:3306"
+            - "3307:3306"
         environment:
             MARIADB_DATABASE: 'ProyectoCL'
             MARIADB_USER: 'root'

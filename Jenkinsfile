@@ -15,7 +15,7 @@ pipeline {
         stage('Levantar contenedores') {
             steps {
                 echo 'Levantando Laravel + MariaDB + Nginx...'
-                sh 'docker-compose up -d --build'
+                sh 'docker compose up -d --build'
             }
         }
 
@@ -29,22 +29,22 @@ pipeline {
         stage('Migraciones y dependencias') {
             steps {
                 echo 'Instalando dependencias y migraciones...'
-                sh 'docker-compose exec laravel_app composer install'
-                sh 'docker-compose exec laravel_app php artisan migrate --seed'
+                sh 'docker compose exec laravel_app composer install'
+                sh 'docker compose exec laravel_app php artisan migrate --seed'
             }
         }
 
         stage('Ejecutar pruebas') {
             steps {
                 echo 'Ejecutando pruebas de Laravel...'
-                sh 'docker-compose exec laravel_app php artisan test'
+                sh 'docker compose exec laravel_app php artisan test'
             }
         }
 
         stage('Finalizar') {
             steps {
                 echo 'Apagando contenedores...'
-                sh 'docker-compose down'
+                sh 'docker compose down'
             }
         }
     }

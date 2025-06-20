@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
-        'reference' => 'cc824ee103c81f6d54f89d8bae4f86bc35f4968c',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'ccf15feaa3a930d8149a8a1a0595da516e5955dc',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -376,6 +376,15 @@
                 0 => 'v9.52.20',
             ),
         ),
+        'jean85/pretty-package-versions' => array(
+            'pretty_version' => '2.1.1',
+            'version' => '2.1.1.0',
+            'reference' => '4d7aa5dab42e2a76d99559706022885de0e18e1a',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jean85/pretty-package-versions',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'kodova/hamcrest-php' => array(
             'dev_requirement' => true,
             'replaced' => array(
@@ -392,9 +401,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => 'cc824ee103c81f6d54f89d8bae4f86bc35f4968c',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'ccf15feaa3a930d8149a8a1a0595da516e5955dc',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -586,6 +595,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'nyholm/psr7' => array(
+            'pretty_version' => '1.8.2',
+            'version' => '1.8.2.0',
+            'reference' => 'a71f2b11690f4b24d099d6b16690a90ae14fc6f3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../nyholm/psr7',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'phar-io/manifest' => array(
             'pretty_version' => '2.0.4',
             'version' => '2.0.4.0',
@@ -603,6 +621,12 @@
             'install_path' => __DIR__ . '/../phar-io/version',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'php-http/message-factory-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '1.0',
+            ),
         ),
         'phpoption/phpoption' => array(
             'pretty_version' => '1.9.3',
@@ -974,6 +998,24 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+        'sentry/sentry' => array(
+            'pretty_version' => '4.14.0',
+            'version' => '4.14.0.0',
+            'reference' => 'f8c50304bd2f1640704345274bdd5af150b6945d',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../sentry/sentry',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'sentry/sentry-laravel' => array(
+            'pretty_version' => '4.15.0',
+            'version' => '4.15.0.0',
+            'reference' => '481398f05e4b0f5886f6092e1b95b626a438deff',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../sentry/sentry-laravel',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'spatie/backtrace' => array(
             'pretty_version' => '1.7.4',
             'version' => '1.7.4.0',
@@ -1115,6 +1157,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'symfony/options-resolver' => array(
+            'pretty_version' => 'v7.3.0',
+            'version' => '7.3.0.0',
+            'reference' => 'afb9a8038025e5dbc657378bfab9198d75f10fca',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/options-resolver',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'symfony/polyfill-ctype' => array(
             'pretty_version' => 'v1.32.0',
             'version' => '1.32.0.0',
@@ -1193,6 +1244,15 @@
             'reference' => '2114fd60f26a296cc403a7939ab91478475a33d4',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/process',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/psr-http-message-bridge' => array(
+            'pretty_version' => 'v2.3.1',
+            'version' => '2.3.1.0',
+            'reference' => '581ca6067eb62640de5ff08ee1ba6850a0ee472e',
+            'type' => 'symfony-bridge',
+            'install_path' => __DIR__ . '/../symfony/psr-http-message-bridge',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

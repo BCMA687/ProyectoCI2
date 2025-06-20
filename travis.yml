@@ -1,0 +1,19 @@
+language: php
+ 
+php:
+  - 8.2
+ 
+services:
+  - mysql
+ 
+before_install:
+  - cp .env.example .env
+  - composer install
+  - php artisan key:generate
+  - php artisan migrate --force
+ 
+script:
+  - php artisan test --coverage-clover=coverage.xml
+ 
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

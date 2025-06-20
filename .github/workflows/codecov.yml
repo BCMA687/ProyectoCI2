@@ -2,9 +2,9 @@ name: Run Laravel Tests and Upload to Codecov
  
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
  
 jobs:
   test:

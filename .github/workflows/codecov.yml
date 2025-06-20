@@ -1,0 +1,54 @@
+name: Run Laravel Tests and Upload to Codecov
+ 
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+ 
+jobs:
+  test:
+    runs-on: ubuntu-latest
+ 
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: laravel
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+ 
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+ 
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+ 
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+ 
+      - name: Copy .env
+        run: cp .env.example .env
+ 
+      - name: Generate application key
+        run: php artisan key:generate
+ 
+      - name: Run PHPUnit tests
+        run: |
+          ./vendor/bin/phpunit --coverage-clover=coverage.xml
+ 
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: coverage.xml
+          fail_ci_if_error: true

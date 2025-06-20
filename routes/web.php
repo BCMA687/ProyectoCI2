@@ -20,3 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Route::get('/debug-sentry', function () {
+    //throw new Exception('Este es un error de prueba enviado a Sentry.');
+//});
+
+Route::get('/sentry-error', [App\Http\Controllers\ErrorTestController::class, 'triggerError']); 
+
+

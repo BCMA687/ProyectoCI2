@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//prueba
+
 Route::get('/sentry-test', [App\Http\Controllers\SentryController::class, 'test'])->name('sentry.test');
 
 

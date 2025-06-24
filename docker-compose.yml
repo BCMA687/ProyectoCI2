@@ -1,17 +1,33 @@
 version: "3.8"
 services:
 
+    phpmyadmin:
+        image: phpmyadmin
+        container_name: phpmyadmin_container
+        restart: always
+        ports:
+            - "8081:80"
+        environment:
+            PMA_HOST: mariadb
+            PMA_PORT: 3306
+            PMA_USER: root
+            PMA_PASSWORD: mariadb
+        depends_on:
+            - mariadb
+        networks:
+            - project-net
+
     mariadb:
         image: mariadb
-        container_name: mariadb_container
+        container_name: mariadb_container2
         volumes : 
             - ./sql-data/db:/var/lib/mariadb
         ports: 
-            - "3307:3306"
+            - "3312:3306"
         environment:
             MARIADB_DATABASE: 'ProyectoCL'
             MARIADB_USER: 'root'
-            MARIADB_PASSWORD: ''
+            MARIADB_PASSWORD: 'mariadb'
             MARIADB_ROOT_PASSWORD: 'mariadb'
         networks:
             - project-net
@@ -33,11 +49,11 @@ services:
               - LOG_LEVEL=debug
 
               - DB_CONNECTION=mysql
-              - DB_HOST=127.0.0.1
+              - DB_HOST=mariadb
               - DB_PORT=3306
               - DB_DATABASE=ProyectoCL
               - DB_USERNAME=root
-              - DB_PASSWORD=
+              - DB_PASSWORD=mariadb
 
               - BROADCAST_DRIVER=log
               - CACHE_DRIVER=file
@@ -80,7 +96,7 @@ services:
               - VITE_PUSHER_PORT="${PUSHER_PORT}"
               - VITE_PUSHER_SCHEME="${PUSHER_SCHEME}"
               - VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
-        container_name: laravel_app
+        container_name: laravel_app2
         volumes:
             - laravel-app:/var/www/html
         depends_on:
@@ -95,17 +111,17 @@ services:
         volumes:
             - laravel-app:/var/www/html
         ports:
-            - "16005:80"
+            - "16008:80"
         networks:
             - project-net
 
 
     jenkins:
       image: jenkins/jenkins:lts      
-      container_name: jenkins_ci
+      container_name: jenkins_ci2
       ports:
-        - "8085:8080"
-        - "50010:50000"
+        - "8088:8080"
+        - "50021:50000"
       volumes:
         - jenkins_home:/var/jenkins_home
         - /var/run/docker.sock:/var/run/docker.sock

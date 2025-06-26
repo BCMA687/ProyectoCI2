@@ -12,7 +12,7 @@
             <div class="col-md-5">
                 <div class="card shadow">
                     <div class="card-body">
-                        <h3 class="card-title mb-4 text-center">Iniciar Sesión</h3>
+                        <h3 class="card-title mb-4 text-center">Iniciar Sesións</h3>
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="mb-3">
